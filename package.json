@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "isomorphic-fetch": "^3.0.0"
+  }
+}
