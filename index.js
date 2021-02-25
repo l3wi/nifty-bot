@@ -104,7 +104,6 @@ client.on('ready', async function () {
     newData
       .filter((item) => item.Type === 'sale')
       .map(async (item, i) => {
-        console.log(item)
         const embed = new Discord.MessageEmbed()
           .setColor('#0099ff')
           .setTitle(`${item.Type.toUpperCase()}: ${item.NiftyObject.name}`)
@@ -180,13 +179,14 @@ client.on('ready', async function () {
           const whale = new Discord.MessageEmbed()
             .setColor('#ef005e')
             .setTitle(
-              `${size()} ${item.Type.toUpperCase()}: ${item.NiftyObject.name}`
+              `${size()} $${numberWithCommas(
+                (item.SaleAmountInCents / 100).toFixed(2)
+              )} sale of ${item.NiftyObject.name}`
             )
             .setURL(
               `https://niftygateway.com/itemdetail/secondary/${item.NiftyObject.contractAddress}/${item.NiftyObject.tokenId}`
             )
             .setAuthor(item.NiftyObject.project_name)
-            .setDescription(item.NiftyObject.description)
             .setThumbnail(item.PurchasingUserProfile.profile_pic_url)
             .setTimestamp()
             .addFields(
