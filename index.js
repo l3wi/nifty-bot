@@ -181,12 +181,12 @@ client.on('ready', async function () {
             .setTitle(
               `${size()} $${numberWithCommas(
                 (item.SaleAmountInCents / 100).toFixed(2)
-              )} sale of ${item.NiftyObject.name}`
+              )} SALE`
             )
             .setURL(
               `https://niftygateway.com/itemdetail/secondary/${item.NiftyObject.contractAddress}/${item.NiftyObject.tokenId}`
             )
-            .setAuthor(item.NiftyObject.project_name)
+            .setAuthor(item.NiftyObject.name)
             .setThumbnail(item.PurchasingUserProfile.profile_pic_url)
             .setTimestamp()
             .addFields(
@@ -206,8 +206,8 @@ client.on('ready', async function () {
                 inline: true,
               },
               {
-                name: ' ',
-                value: ` `,
+                name: '\u200B',
+                value: '\u200B',
                 inline: true,
               }
             )
@@ -220,6 +220,11 @@ client.on('ready', async function () {
               {
                 name: 'Buyer',
                 value: item.PurchasingUserProfile.name,
+                inline: true,
+              },
+              {
+                name: '\u200B',
+                value: '\u200B',
                 inline: true,
               }
             )
