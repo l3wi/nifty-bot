@@ -144,7 +144,11 @@ client.on('ready', async function () {
           .addFields(
             {
               name: 'Edition',
-              value: `#${item.NiftyObject.tokenId.slice(8)}/${
+              value: `#${item.NiftyObject.tokenId.slice(
+                item.NiftyObject.tokenId.length -
+                  item.NiftyObject.unmintedNiftyObjThatCreatedThis.niftyTotalSold.toString()
+                    .length
+              )}/${
                 item.NiftyObject.unmintedNiftyObjThatCreatedThis.niftyTotalSold
               }`,
               inline: true,
@@ -199,7 +203,11 @@ client.on('ready', async function () {
               },
               {
                 name: 'Edition',
-                value: `#${item.NiftyObject.tokenId.slice(8)}/${
+                value: `#${item.NiftyObject.tokenId.slice(
+                  item.NiftyObject.tokenId.length -
+                    item.NiftyObject.unmintedNiftyObjThatCreatedThis.niftyTotalSold.toString()
+                      .length
+                )}/${
                   item.NiftyObject.unmintedNiftyObjThatCreatedThis
                     .niftyTotalSold
                 }`,
